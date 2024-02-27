@@ -1,0 +1,32 @@
+﻿@model ModelValidation.Models.Auth.SignInViewModel
+
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SignIn" method="post">
+
+            <!-- Email -->
+            <div class="form-group">
+                <label asp-for="@Model.Email" class="control-label"></label>
+                <input asp-for="@Model.Email" class="form-control" />
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label asp-for="@Model.Password" class="control-label"></label>
+                <input asp-for="@Model.Password" class="form-control" />
+                <span asp-validation-for="@Model.Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="SignIn" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,79 @@
+﻿@using ModelValidation.Resource
+@model ModelValidation.Models.Activity.CreateActivityViewModel
+
+@{
+    ViewData["Title"] = "Create Activity";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateActivity" method="post">
+
+            <!-- Name -->
+            <div class="form-group">
+                <label asp-for="@Model.Name" class="control-label"></label>
+                <input asp-for="@Model.Name" class="form-control" />
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label asp-for="@Model.Description" class="control-label"></label>
+                <textarea asp-for="@Model.Description" class="form-control"></textarea>
+                <span id="editorErrorText" class="text-danger">@CustomErrorMessage.EditorRequired</span>
+            </div>
+
+            <!-- BusinessHours -->
+            <div class="form-group">
+                <label asp-for="@Model.BusinessHours" class="control-label"></label>
+                <textarea asp-for="@Model.BusinessHours" class="form-control"></textarea>
+                <span asp-validation-for="@Model.BusinessHours" class="text-danger"></span>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" >
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scripts {
+    <!-- Import tiny cdn -->
+    <script src="https://cdn.tiny.cloud/1/wri2sfox9cuvtkl9w3enlylzh14hcx56p21o2xj5wm28lsuo/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        $().ready(function () {
+            // EditorError hide
+            $('#editorErrorText').hide();
+
+            // Editor init
+            tinymce.init({
+                selector: '#Description',
+                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+                mergetags_list: [
+                    { value: 'First.Name', title: 'First Name' },
+                    { value: 'Email', title: 'Email' },
+                ],
+                ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+            });
+
+            // Validate editor content require
+            $('form').submit(function (e) {
+                var content = tinymce.get('Description').getContent();
+                if (content.trim() === '') {
+                    e.preventDefault(); // Prevent form submission
+                    $('#editorErrorText').show(); // Show error message
+                } else {
+                    $('#editorErrorText').hide(); // Hide error message
+                }
+            });
+        })
+    </script>
+}

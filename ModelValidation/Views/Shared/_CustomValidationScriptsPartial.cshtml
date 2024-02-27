@@ -1,0 +1,18 @@
+﻿@using ModelValidation.Resource;
+
+<script>
+    $(function () {
+        mountPasswordValidator();
+    });
+
+    function mountPasswordValidator() {
+        let validatorName = "password";
+        let message = "@CustomErrorMessage.Password";
+        var method = function (value, element) {
+            return this.optional(element) || value.length >= 8;
+        }
+
+        $.validator.addMethod(validatorName, method, message);
+        $.validator.unobtrusive.adapters.addBool(validatorName);
+    }
+</script>

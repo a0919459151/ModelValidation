@@ -1,0 +1,38 @@
+﻿@model ModelValidation.Models.DataTime.DateTimeViewModel
+
+@{
+    ViewData["Title"] = "Date Time";
+}
+
+<div class="col-md-4">
+    <form asp-action="Index" method="post">
+
+        <!-- DateTime -->
+        <div class="form-group">
+            <label asp-for="@Model.DateTime" class="control-label"></label>
+            <input asp-for="@Model.DateTime" class="form-control" />
+            <span asp-validation-for="@Model.DateTime" class="text-danger"></span>
+        </div>
+
+        <!-- Date -->
+        <div class="form-group">
+            <label asp-for="@Model.Date" class="control-label"></label>
+            <input asp-for="@Model.Date" class="form-control" />
+            <span asp-validation-for="@Model.Date" class="text-danger"></span>
+        </div>
+
+        <!-- Time -->
+        <div class="form-group">
+            <label asp-for="@Model.Time" class="control-label"></label>
+            <input asp-for="@Model.Time" class="form-control" />
+            <span asp-validation-for="@Model.Time" class="text-danger"></span>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
