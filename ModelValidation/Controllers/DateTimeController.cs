@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ModelValidation.Models.DataTime;
+using ModelValidation.Models.ViewModel.DataTime;
 
 namespace ModelValidation.Controllers
 {
@@ -13,7 +13,7 @@ namespace ModelValidation.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult PostIndex()
+        public IActionResult PostIndex(DateTimeViewModel model)
         {
             return View();
         }

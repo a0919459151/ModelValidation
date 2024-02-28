@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ModelValidation.Models.Activity;
+using ModelValidation.Models.ViewModel.Activity;
 
 namespace ModelValidation.Controllers
 {

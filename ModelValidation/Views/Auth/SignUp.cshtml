@@ -1,4 +1,4 @@
-﻿@model ModelValidation.Models.Auth.SignUpViewModel
+﻿@model SignUpViewModel
 
 @{
     ViewData["Title"] = "Sign Up";
@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="SignUp" method="post">
+        <form method="post">
 
             <!-- Name -->
             <div class="form-group">
@@ -52,7 +52,7 @@
 
             <!-- Submit -->
             <div class="form-group">
-                <input type="submit" value="SignUp" class="btn btn-primary" />
+                <button type="submit" value="" class="btn btn-primary" asp-action="SignUp">SignUp</button>
             </div>
         </form>
     </div>

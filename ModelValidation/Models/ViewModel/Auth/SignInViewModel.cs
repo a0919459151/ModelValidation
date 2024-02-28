@@ -1,8 +1,8 @@
-﻿using ModelValidation.Resource.DisplayName.Auth;
-using ModelValidation.Resource;
+﻿using ModelValidation.Resource;
 using System.ComponentModel.DataAnnotations;
+using ModelValidation.Resource.DisplayName.ViewModel.Auth;
 
-namespace ModelValidation.Models.Auth
+namespace ModelValidation.Models.ViewModel.Auth
 {
     public class SignInViewModel
     {

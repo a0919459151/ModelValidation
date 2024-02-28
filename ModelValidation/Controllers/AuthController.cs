@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ModelValidation.Models.Auth;
+using ModelValidation.Models.ViewModel.Auth;
 
 namespace ModelValidation.Controllers
 {
@@ -20,7 +20,6 @@ namespace ModelValidation.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SignUp(SignUpViewModel model)
         {
-            // redirect to home index
             return RedirectToAction("Index", "Home");
         }
 

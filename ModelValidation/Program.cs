@@ -1,7 +1,11 @@
+using ModelValidation.Serivces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<DropdownService>();
 
 var app = builder.Build();
 

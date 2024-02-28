@@ -1,8 +1,8 @@
 ﻿using ModelValidation.Resource;
-using ModelValidation.Resource.DisplayName.Activity;
+using ModelValidation.Resource.DisplayName.ViewModel.Activity;
 using System.ComponentModel.DataAnnotations;
 
-namespace ModelValidation.Models.Activity
+namespace ModelValidation.Models.ViewModel.Activity
 {
     public class CreateActivityViewModel
     {

@@ -1,0 +1,110 @@
+﻿@inject DropdownService _dropdownService;
+@model DropdownViewModel
+
+@{
+    ViewData["Title"] = "Dropdown";
+
+    // Enum dropdown items
+    var enumDropdownItems = Html.GetEnumSelectList<LogLevelEnum>();
+
+    // Enum dropdown nullable items
+    var enumDropdownNullableItems = Html.GetEnumSelectList<LogLevelEnum>()
+        .Prepend(new SelectListItem { Value = null, Text = "請選擇" });
+
+    // Enum dropdown multiple items
+    var enumDropdownMultipleItems = Html.GetEnumSelectList<LogLevelEnum>();
+
+    // Enum dropdown multiple nullable items
+    var enumDropdownMultipleNullableItems = Html.GetEnumSelectList<LogLevelEnum>()
+        .Prepend(new SelectListItem { Value = null, Text = "請選擇" });
+
+    // DB data dropdown items
+    var dbDataDropdownItems = _dropdownService.GetActivityDropdownItems();
+
+    // DB data dropdown nullable items
+    var dbDataDropdownNullableItems = _dropdownService.GetActivityDropdownItems()
+        .Prepend(new SelectListItem { Value = null, Text = "請選擇" });
+
+}
+
+<div class="col-md-4">
+    <form method="post">
+
+        <!-- Dropdown -->
+        <div class="form-group">
+            @Html.Raw(ViewConstString.RequriedHint)
+            <label asp-for="@Model.EnumDropdown" class="control-label"></label>
+            <select asp-for="@Model.EnumDropdown" class="form-control" asp-items="enumDropdownItems"></select>
+            <span asp-validation-for="@Model.EnumDropdown" class="text-danger"></span>
+        </div>
+
+        <!-- Enum dropdown nullable -->
+        <div class="form-group">
+            <label asp-for="@Model.EnumDropdownNullable" class="control-label"></label>
+            <select asp-for="@Model.EnumDropdownNullable" class="form-control" asp-items="enumDropdownNullableItems"></select>
+            <span asp-validation-for="@Model.EnumDropdownNullable" class="text-danger"></span>
+        </div>
+
+        <!-- Enum dropdown multiple -->
+        <div class="form-group">
+            @Html.Raw(ViewConstString.RequriedHint)
+            <label asp-for="@Model.EnumDropdownMultiple" class="control-label"></label>
+            <select asp-for="@Model.EnumDropdownMultiple" class="form-control" asp-items="enumDropdownMultipleItems"></select>
+            <span asp-validation-for="@Model.EnumDropdownMultiple" class="text-danger"></span>
+        </div>
+
+        <!-- Enum dropdown nultiple nullable -->
+        <div class="form-group">
+            <label asp-for="@Model.EnumDropdownMultipleNullable" class="control-label"></label>
+            <select asp-for="@Model.EnumDropdownMultipleNullable" class="form-control" asp-items="enumDropdownMultipleNullableItems"></select>
+            <span asp-validation-for="@Model.EnumDropdownMultipleNullable" class="text-danger"></span>
+        </div>
+
+        <!-- DB data dropdown items -->
+        <div class="form-group">
+            @Html.Raw(ViewConstString.RequriedHint)
+            <label asp-for="@Model.DbDataDropdownId" class="control-label"></label>
+            <select asp-for="@Model.DbDataDropdownId" class="form-control" asp-items="dbDataDropdownItems"></select>
+            <span asp-validation-for="@Model.DbDataDropdownId" class="text-danger"></span>
+        </div>
+
+        <!--  DB data dropdown nullable items -->
+        <div class="form-group">
+            <label asp-for="@Model.DbDataDropdownNullableId" class="control-label"></label>
+            <select asp-for="@Model.DbDataDropdownNullableId" class="form-control" asp-items="dbDataDropdownNullableItems"></select>
+            <span asp-validation-for="@Model.DbDataDropdownNullableId" class="text-danger"></span>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" asp-action="Index">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // EnumDropdown select2
+            $('#EnumDropdown').select2({ width: '100%', allowClear: true, minimumResultsForSearch: Infinity });
+
+            // EnumDropdownNullable select2
+            $('#EnumDropdownNullable').select2({ width: '100%', allowClear: true, minimumResultsForSearch: Infinity });
+
+            // EnumDropdownMultiple select2
+            $('#EnumDropdownMultiple').select2({ width: '100%', allowClear: true, minimumResultsForSearch: Infinity })
+                .attr('multiple', 'multiple');
+
+            // EnumDropdownMultipleNullable select2
+            $('#EnumDropdownMultipleNullable').select2({ width: '100%', allowClear: true, minimumResultsForSearch: Infinity })
+                .attr('multiple', 'multiple');
+
+            // DbDataDropdownId select2
+            $('#DbDataDropdownId').select2({ width: '100%', allowClear: true, minimumResultsForSearch: Infinity });
+
+            // DbDataDropdownNullableId select2
+            $('#DbDataDropdownNullableId').select2({ width: '100%', allowClear: true, minimumResultsForSearch: Infinity });
+        });
+    </script>
+}

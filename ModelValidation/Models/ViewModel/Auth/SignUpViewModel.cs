@@ -1,9 +1,9 @@
 ﻿using ModelValidation.Resource;
-using ModelValidation.Resource.DisplayName.Auth;
+using ModelValidation.Resource.DisplayName.ViewModel.Auth;
 using ModelValidation.Resource.RegexTemplate;
 using System.ComponentModel.DataAnnotations;
 
-namespace ModelValidation.Models.Auth
+namespace ModelValidation.Models.ViewModel.Auth
 {
     public class SignUpViewModel
     {

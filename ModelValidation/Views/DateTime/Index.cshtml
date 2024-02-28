@@ -1,11 +1,11 @@
-﻿@model ModelValidation.Models.DataTime.DateTimeViewModel
+﻿@model DateTimeViewModel
 
 @{
     ViewData["Title"] = "Date Time";
 }
 
 <div class="col-md-4">
-    <form asp-action="Index" method="post">
+    <form method="post">
 
         <!-- DateTime -->
         <div class="form-group">
@@ -30,9 +30,7 @@
 
         <!-- Submit -->
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">
-                Submit
-            </button>
+            <button type="submit" class="btn btn-primary" asp-action="Index" asp-controller="Home">Submit</button>
         </div>
     </form>
 </div>

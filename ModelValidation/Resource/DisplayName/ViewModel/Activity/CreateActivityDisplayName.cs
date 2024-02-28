@@ -1,4 +1,4 @@
-﻿namespace ModelValidation.Resource.DisplayName.Activity
+﻿namespace ModelValidation.Resource.DisplayName.ViewModel.Activity
 {
     public class CreateActivityDisplayName
     {

@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ModelValidation.styles.css" asp-append-version="true" />
+
+    <!-- Import select2 cdn -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -18,7 +21,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- nav bar -->
+                <!-- Nav bar -->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
 
@@ -51,6 +54,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="DateTime" asp-action="Index">DateTime</a>
                         </li>
+
+                        <!-- Dropdown -->
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Dropdown" asp-action="Index">Dropdown</a>
+                        </li>
+
                     </ul>
                 </div>
 
@@ -73,8 +82,13 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
+    <!-- Import select2 cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <!-- Import tiny cdn -->
+    <script src="https://cdn.tiny.cloud/1/wri2sfox9cuvtkl9w3enlylzh14hcx56p21o2xj5wm28lsuo/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
     <partial name="/Views/Shared/_ValidationScriptsPartial.cshtml" />
-    <!-- custom validation -->
+    <!-- Custom validation -->
     <partial name="/Views/Shared/_CustomValidationScriptsPartial.cshtml" />
 </body>
 </html>
