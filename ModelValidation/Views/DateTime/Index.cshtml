@@ -7,30 +7,67 @@
 <div class="col-md-4">
     <form method="post">
 
-        <!-- DateTime -->
-        <div class="form-group">
-            <label asp-for="@Model.DateTime" class="control-label"></label>
-            <input asp-for="@Model.DateTime" class="form-control" />
-            <span asp-validation-for="@Model.DateTime" class="text-danger"></span>
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Date time non-nullable</h4>
+            </div>
+            <div class="card-body">
+                <!-- DateTime -->
+                <div class="form-group">
+                    <label asp-for="@Model.DateTime" class="control-label"></label>
+                    <input asp-for="@Model.DateTime" class="form-control" />
+                    <span asp-validation-for="@Model.DateTime" class="text-danger"></span>
+                </div>
+
+                <!-- Date -->
+                <div class="form-group">
+                    <label asp-for="@Model.Date" class="control-label"></label>
+                    <input asp-for="@Model.Date" class="form-control" />
+                    <span asp-validation-for="@Model.Date" class="text-danger"></span>
+                </div>
+
+                <!-- Time -->
+                <div class="form-group">
+                    <label asp-for="@Model.Time" class="control-label"></label>
+                    <input asp-for="@Model.Time" class="form-control" />
+                    <span asp-validation-for="@Model.Time" class="text-danger"></span>
+                </div>
+            </div>
         </div>
 
-        <!-- Date -->
-        <div class="form-group">
-            <label asp-for="@Model.Date" class="control-label"></label>
-            <input asp-for="@Model.Date" class="form-control" />
-            <span asp-validation-for="@Model.Date" class="text-danger"></span>
-        </div>
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Date time nullable</h4>
+            </div>
+            <div class="card-body">
+                <!-- DateTime -->
+                <div class="form-group">
+                    <label asp-for="@Model.DateTimeNullable" class="control-label"></label>
+                    <input asp-for="@Model.DateTimeNullable" class="form-control" />
+                    <span asp-validation-for="@Model.DateTimeNullable" class="text-danger"></span>
+                </div>
 
-        <!-- Time -->
-        <div class="form-group">
-            <label asp-for="@Model.Time" class="control-label"></label>
-            <input asp-for="@Model.Time" class="form-control" />
-            <span asp-validation-for="@Model.Time" class="text-danger"></span>
-        </div>
+                <!-- Date -->
+                <div class="form-group">
+                    <label asp-for="@Model.DateNullable" class="control-label"></label>
+                    <input asp-for="@Model.DateNullable" class="form-control" />
+                    <span asp-validation-for="@Model.DateNullable" class="text-danger"></span>
+                </div>
 
-        <!-- Submit -->
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary" asp-action="Index" asp-controller="Home">Submit</button>
+                <!-- Time -->
+                <div class="form-group">
+                    <label asp-for="@Model.TimeNullable" class="control-label"></label>
+                    <input asp-for="@Model.TimeNullable" class="form-control" />
+                    <span asp-validation-for="@Model.TimeNullable" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <!-- Submit -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" asp-action="PostIndex">Submit</button>
+                </div>
+            </div>
         </div>
     </form>
 </div>

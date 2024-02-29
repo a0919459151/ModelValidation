@@ -2,12 +2,10 @@
 {
     public class DateTimeDisplayName
     {
-        public const string DateTime = "DateTime";
+        public const string DateTime = "時日";
 
-        public const string Date = "Date";
+        public const string Date = "日期";
 
-        public const string Time = "Time";
-
-        public const string Duration = "Duration";
+        public const string Time = "時間";
     }
 }

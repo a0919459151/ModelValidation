@@ -9,16 +9,28 @@ namespace ModelValidation.Models.ViewModel.DataTime
         [Display(Name = DateTimeDisplayName.DateTime)]
         [Required(ErrorMessage = ErrorMessage.Required)]
         [DataType(DataType.DateTime)]
-        public DateTime? DateTime { get; set; }
+        public DateTime DateTime { get; set; } = System.DateTime.MinValue;
 
         [Display(Name = DateTimeDisplayName.Date)]
         [Required(ErrorMessage = ErrorMessage.Required)]
         [DataType(DataType.Date)]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; } = System.DateTime.MinValue;
 
         [Display(Name = DateTimeDisplayName.Time)]
         [Required(ErrorMessage = ErrorMessage.Required)]
         [DataType(DataType.Time)]
-        public DateTime? Time { get; set; }
+        public DateTime Time { get; set; } = System.DateTime.MinValue;
+
+        [Display(Name = DateTimeDisplayName.DateTime)]
+        [DataType(DataType.DateTime)]
+        public DateTime? DateTimeNullable { get; set; }
+
+        [Display(Name = DateTimeDisplayName.Date)]
+        [DataType(DataType.Date)]
+        public DateTime? DateNullable { get; set; }
+
+        [Display(Name = DateTimeDisplayName.Time)]
+        [DataType(DataType.Time)]
+        public DateTime? TimeNullable { get; set; }
     }
 }
