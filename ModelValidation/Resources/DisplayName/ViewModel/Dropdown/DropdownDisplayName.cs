@@ -1,4 +1,4 @@
-﻿namespace ModelValidation.Resource.DisplayName.ViewModel.Dropdown
+﻿namespace ModelValidation.Resources.DisplayName.ViewModel.Dropdown
 {
     public class DropdownDisplayName
     {
@@ -13,5 +13,9 @@
         public const string DbDataDropdown = "資料庫資料下拉選單";
 
         public const string DbDataDropdownNullable = "資料庫資料下拉選單";
+
+        public const string DbDataDropdownMultiple = "資料庫資料多選下拉選單";
+
+        public const string DbDataDropdownMultipleNullable = "資料庫資料多選下拉選單";
     }
 }

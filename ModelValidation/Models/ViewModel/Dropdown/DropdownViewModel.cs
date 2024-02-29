@@ -1,6 +1,6 @@
 ﻿using ModelValidation.Models.Enum;
-using ModelValidation.Resource;
-using ModelValidation.Resource.DisplayName.ViewModel.Dropdown;
+using ModelValidation.Resources;
+using ModelValidation.Resources.DisplayName.ViewModel.Dropdown;
 using System.ComponentModel.DataAnnotations;
 
 namespace ModelValidation.Models.ViewModel.Dropdown
@@ -27,5 +27,12 @@ namespace ModelValidation.Models.ViewModel.Dropdown
 
         [Display(Name = DropdownDisplayName.DbDataDropdownNullable)]
         public int? DbDataDropdownNullableId { get; set; }
+
+        [Display(Name = DropdownDisplayName.DbDataDropdownMultiple)]
+        [Required(ErrorMessage = ErrorMessage.Required)]
+        public List<int> DbDataDropdownMultipleId { get; set; } = new List<int>();
+
+        [Display(Name = DropdownDisplayName.DbDataDropdownMultipleNullable)]
+        public List<int>? DbDataDropdownMultipleNullableId { get; set; }
     }
 }

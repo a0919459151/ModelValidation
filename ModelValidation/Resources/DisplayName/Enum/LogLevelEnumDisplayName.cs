@@ -1,4 +1,4 @@
-﻿namespace ModelValidation.Resource.DisplayName.Enum
+﻿namespace ModelValidation.Resources.DisplayName.Enum
 {
     public class LogLevelEnumDisplayName
     {

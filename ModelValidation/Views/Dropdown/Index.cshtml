@@ -9,75 +9,101 @@
 
     // Enum dropdown nullable items
     var enumDropdownNullableItems = Html.GetEnumSelectList<LogLevelEnum>()
-        .Prepend(new SelectListItem { Value = null, Text = "請選擇" });
-
-    // Enum dropdown multiple items
-    var enumDropdownMultipleItems = Html.GetEnumSelectList<LogLevelEnum>();
-
-    // Enum dropdown multiple nullable items
-    var enumDropdownMultipleNullableItems = Html.GetEnumSelectList<LogLevelEnum>()
-        .Prepend(new SelectListItem { Value = null, Text = "請選擇" });
+        .Prepend(new SelectListItem { Value = "", Text = "請選擇" });
 
     // DB data dropdown items
     var dbDataDropdownItems = _dropdownService.GetActivityDropdownItems();
 
     // DB data dropdown nullable items
     var dbDataDropdownNullableItems = _dropdownService.GetActivityDropdownItems()
-        .Prepend(new SelectListItem { Value = null, Text = "請選擇" });
-
+        .Prepend(new SelectListItem { Value = "", Text = "請選擇" });
 }
 
 <div class="col-md-4">
     <form method="post">
 
-        <!-- Dropdown -->
-        <div class="form-group">
-            @Html.Raw(ViewConstString.RequriedHint)
-            <label asp-for="@Model.EnumDropdown" class="control-label"></label>
-            <select asp-for="@Model.EnumDropdown" class="form-control" asp-items="enumDropdownItems"></select>
-            <span asp-validation-for="@Model.EnumDropdown" class="text-danger"></span>
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Enum dropdown</h4>
+            </div>
+            <div class="card-body">
+
+                <!-- Enum dropdown -->
+                <div class="form-group">
+                    <label asp-for="@Model.EnumDropdown" class="control-label"></label>
+                    @Html.Raw(ViewConstString.RequriedHint)
+                    <select asp-for="@Model.EnumDropdown" class="form-control" asp-items="enumDropdownItems"></select>
+                    <span asp-validation-for="@Model.EnumDropdown" class="text-danger"></span>
+                </div>
+
+                <!-- Enum dropdown nullable -->
+                <div class="form-group">
+                    <label asp-for="@Model.EnumDropdownNullable" class="control-label"></label>
+                    <select asp-for="@Model.EnumDropdownNullable" class="form-control" asp-items="enumDropdownNullableItems"></select>
+                    <span asp-validation-for="@Model.EnumDropdownNullable" class="text-danger"></span>
+                </div>
+
+                <!-- Enum dropdown multiple -->
+                <div class="form-group">
+                    <label asp-for="@Model.EnumDropdownMultiple" class="control-label"></label>
+                    @Html.Raw(ViewConstString.RequriedHint)
+                    <select asp-for="@Model.EnumDropdownMultiple" class="form-control" asp-items="enumDropdownItems"></select>
+                    <span asp-validation-for="@Model.EnumDropdownMultiple" class="text-danger"></span>
+                </div>
+
+                <!-- Enum dropdown nultiple nullable -->
+                <div class="form-group">
+                    <label asp-for="@Model.EnumDropdownMultipleNullable" class="control-label"></label>
+                    <select asp-for="@Model.EnumDropdownMultipleNullable" class="form-control" asp-items="enumDropdownItems"></select>
+                    <span asp-validation-for="@Model.EnumDropdownMultipleNullable" class="text-danger"></span>
+                </div>
+
+            </div>
         </div>
 
-        <!-- Enum dropdown nullable -->
-        <div class="form-group">
-            <label asp-for="@Model.EnumDropdownNullable" class="control-label"></label>
-            <select asp-for="@Model.EnumDropdownNullable" class="form-control" asp-items="enumDropdownNullableItems"></select>
-            <span asp-validation-for="@Model.EnumDropdownNullable" class="text-danger"></span>
-        </div>
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">DB dropdown</h4>
+            </div>
+            <div class="card-body">
 
-        <!-- Enum dropdown multiple -->
-        <div class="form-group">
-            @Html.Raw(ViewConstString.RequriedHint)
-            <label asp-for="@Model.EnumDropdownMultiple" class="control-label"></label>
-            <select asp-for="@Model.EnumDropdownMultiple" class="form-control" asp-items="enumDropdownMultipleItems"></select>
-            <span asp-validation-for="@Model.EnumDropdownMultiple" class="text-danger"></span>
-        </div>
+                <!-- DB data dropdown -->
+                <div class="form-group">
+                    <label asp-for="@Model.DbDataDropdownId" class="control-label"></label>
+                    @Html.Raw(ViewConstString.RequriedHint)
+                    <select asp-for="@Model.DbDataDropdownId" class="form-control" asp-items="dbDataDropdownItems"></select>
+                    <span asp-validation-for="@Model.DbDataDropdownId" class="text-danger"></span>
+                </div>
 
-        <!-- Enum dropdown nultiple nullable -->
-        <div class="form-group">
-            <label asp-for="@Model.EnumDropdownMultipleNullable" class="control-label"></label>
-            <select asp-for="@Model.EnumDropdownMultipleNullable" class="form-control" asp-items="enumDropdownMultipleNullableItems"></select>
-            <span asp-validation-for="@Model.EnumDropdownMultipleNullable" class="text-danger"></span>
-        </div>
+                <!--  DB data dropdown nullable -->
+                <div class="form-group">
+                    <label asp-for="@Model.DbDataDropdownNullableId" class="control-label"></label>
+                    <select asp-for="@Model.DbDataDropdownNullableId" class="form-control" asp-items="dbDataDropdownNullableItems"></select>
+                    <span asp-validation-for="@Model.DbDataDropdownNullableId" class="text-danger"></span>
+                </div>
 
-        <!-- DB data dropdown items -->
-        <div class="form-group">
-            @Html.Raw(ViewConstString.RequriedHint)
-            <label asp-for="@Model.DbDataDropdownId" class="control-label"></label>
-            <select asp-for="@Model.DbDataDropdownId" class="form-control" asp-items="dbDataDropdownItems"></select>
-            <span asp-validation-for="@Model.DbDataDropdownId" class="text-danger"></span>
-        </div>
+                <!-- DB data dropdown multipul -->
+                <div class="form-group">
+                    <label asp-for="@Model.DbDataDropdownMultipleId" class="control-label"></label>
+                    @Html.Raw(ViewConstString.RequriedHint)
+                    <select asp-for="@Model.DbDataDropdownMultipleId" class="form-control" asp-items="dbDataDropdownItems"></select>
+                    <span asp-validation-for="@Model.DbDataDropdownMultipleId" class="text-danger"></span>
+                </div>
 
-        <!--  DB data dropdown nullable items -->
-        <div class="form-group">
-            <label asp-for="@Model.DbDataDropdownNullableId" class="control-label"></label>
-            <select asp-for="@Model.DbDataDropdownNullableId" class="form-control" asp-items="dbDataDropdownNullableItems"></select>
-            <span asp-validation-for="@Model.DbDataDropdownNullableId" class="text-danger"></span>
-        </div>
+                <!-- DB data dropdown multipul nullable -->
+                <div class="form-group">
+                    <label asp-for="@Model.DbDataDropdownMultipleNullableId" class="control-label"></label>
+                    <select asp-for="@Model.DbDataDropdownMultipleNullableId" class="form-control" asp-items="dbDataDropdownItems"></select>
+                    <span asp-validation-for="@Model.DbDataDropdownMultipleNullableId" class="text-danger"></span>
+                </div>
+            </div>
 
-        <!-- Submit -->
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary" asp-action="Index">Submit</button>
+            <div class="card-footer">
+                <!-- Submit -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" asp-action="PostIndex">Submit</button>
+                </div>
+            </div>
         </div>
 
     </form>
@@ -105,6 +131,14 @@
 
             // DbDataDropdownNullableId select2
             $('#DbDataDropdownNullableId').select2({ width: '100%', allowClear: true, minimumResultsForSearch: Infinity });
+
+            // DbDataDropdownMultipleId select2
+            $('#DbDataDropdownMultipleId').select2({ width: '100%', allowClear: true, minimumResultsForSearch: Infinity })
+                .attr('multiple', 'multiple');
+
+            // DbDataDropdownMultipleNullableId select2
+            $('#DbDataDropdownMultipleNullableId').select2({ width: '100%', allowClear: true, minimumResultsForSearch: Infinity })
+                .attr('multiple', 'multiple');
         });
     </script>
 }

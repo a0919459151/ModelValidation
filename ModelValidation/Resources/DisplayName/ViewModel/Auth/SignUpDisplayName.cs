@@ -1,4 +1,4 @@
-﻿namespace ModelValidation.Resource.DisplayName.ViewModel.Auth
+﻿namespace ModelValidation.Resources.DisplayName.ViewModel.Auth
 {
     public class SignUpDisplayName
     {

@@ -1,3 +1,5 @@
+using ModelValidation.ModelValidators;
+using ModelValidation.ModelValidators.Common;
 using ModelValidation.Serivces;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// General
+builder.Services.AddHttpContextAccessor();
+
+// Provider
+builder.Services.AddScoped<ToastrProvider>();
+
+// CommonModelValidator
+builder.Services.AddScoped<CommonModelValidator>();
+builder.Services.AddScoped<DropdownModelValidator>();
+
+// Service
 builder.Services.AddScoped<DropdownService>();
 
 var app = builder.Build();

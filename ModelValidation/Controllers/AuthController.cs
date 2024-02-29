@@ -1,10 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ModelValidation.Models.ViewModel.Auth;
+using ModelValidation.ModelValidators.Common;
 
 namespace ModelValidation.Controllers
 {
     public class AuthController : Controller
     {
+        private readonly ToastrProvider _toastr;
+        private readonly CommonModelValidator _commonModelValidator;
+
+        public AuthController(CommonModelValidator modelValidator, ToastrProvider toastr)
+        {
+            _commonModelValidator = modelValidator;
+            _toastr = toastr;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -20,6 +30,13 @@ namespace ModelValidation.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SignUp(SignUpViewModel model)
         {
+            var validateResult = _commonModelValidator.CommonValidate(model);
+            if (!validateResult.IsValid)
+            {
+                _toastr.Error(validateResult.Messages);
+                return View(model);
+            }
+            _toastr.Success();
             return RedirectToAction("Index", "Home");
         }
 
@@ -33,12 +50,14 @@ namespace ModelValidation.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SignIn(SignInViewModel model)
         {
-            if (ModelState.IsValid)
+            var validateResult = _commonModelValidator.CommonValidate(model);
+            if (!validateResult.IsValid)
             {
-                return RedirectToAction("Index");
+                _toastr.Error(validateResult.Messages);
+                return View(model);
             }
-
-            return View(model);
+            _toastr.Success();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

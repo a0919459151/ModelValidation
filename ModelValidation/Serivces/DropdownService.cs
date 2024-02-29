@@ -6,13 +6,14 @@ namespace ModelValidation.Serivces
     {
         public List<SelectListItem> GetActivityDropdownItems()
         {
+            // Mock db access
             return new List<SelectListItem>
             {
-                new SelectListItem { Text = "1", Value = "Activity1" },
-                new SelectListItem { Text = "2", Value = "Activity2" },
-                new SelectListItem { Text = "3", Value = "Activity3" },
-                new SelectListItem { Text = "4", Value = "Activity4" },
-                new SelectListItem { Text = "5", Value = "Activity5" },
+                new SelectListItem { Value= "1", Text  = "Activity1" },
+                new SelectListItem { Value= "2", Text  = "Activity2" },
+                new SelectListItem { Value= "3", Text  = "Activity3" },
+                new SelectListItem { Value= "4", Text  = "Activity4" },
+                new SelectListItem { Value= "5", Text  = "Activity5" }
             };
         }
 

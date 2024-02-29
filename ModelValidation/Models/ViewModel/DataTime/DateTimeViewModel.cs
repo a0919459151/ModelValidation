@@ -1,6 +1,6 @@
-﻿using ModelValidation.Resource;
+﻿using ModelValidation.Resources;
 using System.ComponentModel.DataAnnotations;
-using ModelValidation.Resource.DisplayName.ViewModel.DateTime;
+using ModelValidation.Resources.DisplayName.ViewModel.DateTime;
 
 namespace ModelValidation.Models.ViewModel.DataTime
 {

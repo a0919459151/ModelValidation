@@ -1,5 +1,5 @@
-﻿using ModelValidation.Resource;
-using ModelValidation.Resource.DisplayName.ViewModel.Activity;
+﻿using ModelValidation.Resources;
+using ModelValidation.Resources.DisplayName.ViewModel.Activity;
 using System.ComponentModel.DataAnnotations;
 
 namespace ModelValidation.Models.ViewModel.Activity

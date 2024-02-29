@@ -1,4 +1,4 @@
-﻿namespace ModelValidation.Resource.DisplayName.ViewModel.DateTime
+﻿namespace ModelValidation.Resources.DisplayName.ViewModel.DateTime
 {
     public class DateTimeDisplayName
     {

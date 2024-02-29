@@ -1,7 +1,10 @@
-﻿namespace ModelValidation.Resource
+﻿namespace ModelValidation.Resources
 {
     public static class ErrorMessage
     {
+        /* Common */
+        public const string CommonInvalid = "{0}輸入有誤";
+
         /* Required attribute */
         public const string Required = "{0}為必填";
 
@@ -19,12 +22,15 @@
         public const string Phone = "{0}格式錯誤";
     }
 
-    public static class CustomErrorMessage 
+    public static class CustomErrorMessage
     {
         /* Password attribute */
         public const string Password = "密碼格式錯誤";
 
         /* Editor required */
         public const string EditorRequired = "文字編輯器內容為必填";
+
+        /* List required */
+        public const string ListRequired = "{0}為必填";
     }
 }

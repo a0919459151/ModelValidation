@@ -1,4 +1,4 @@
-﻿using ModelValidation.Resource.DisplayName.Enum;
+﻿using ModelValidation.Resources.DisplayName.Enum;
 using System.ComponentModel.DataAnnotations;
 
 namespace ModelValidation.Models.Enum

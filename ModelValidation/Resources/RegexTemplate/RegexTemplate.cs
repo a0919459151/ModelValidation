@@ -1,4 +1,4 @@
-﻿namespace ModelValidation.Resource.RegexTemplate
+﻿namespace ModelValidation.Resources.RegexTemplate
 {
     public static class RegexTemplate
     {

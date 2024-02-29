@@ -1,6 +1,6 @@
-﻿using ModelValidation.Resource;
+﻿using ModelValidation.Resources;
 using System.ComponentModel.DataAnnotations;
-using ModelValidation.Resource.DisplayName.ViewModel.Auth;
+using ModelValidation.Resources.DisplayName.ViewModel.Auth;
 
 namespace ModelValidation.Models.ViewModel.Auth
 {
@@ -14,7 +14,6 @@ namespace ModelValidation.Models.ViewModel.Auth
         [Display(Name = SignUpDisplayName.Password)]
         [Required(ErrorMessage = ErrorMessage.Required)]
         [DataType(DataType.Password)]
-        [Password]
         public string? Password { get; set; }
     }
 }

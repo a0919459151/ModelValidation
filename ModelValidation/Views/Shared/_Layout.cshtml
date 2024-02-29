@@ -10,6 +10,8 @@
 
     <!-- Import select2 cdn -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <!-- Import toastr cdn -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -86,9 +88,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <!-- Import tiny cdn -->
     <script src="https://cdn.tiny.cloud/1/wri2sfox9cuvtkl9w3enlylzh14hcx56p21o2xj5wm28lsuo/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- Import toastr cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <partial name="/Views/Shared/_ValidationScriptsPartial.cshtml" />
-    <!-- Custom validation -->
-    <partial name="/Views/Shared/_CustomValidationScriptsPartial.cshtml" />
+    <!-- Data annotation validation -->
+    @* <partial name="/Views/Shared/_ValidationScriptsPartial.cshtml" /> *@
+    <!-- Toastr -->
+    <partial name="/Views/Shared/_ToastrPartial.cshtml" />
 </body>
 </html>
