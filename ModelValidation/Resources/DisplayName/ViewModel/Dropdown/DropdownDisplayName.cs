@@ -2,9 +2,9 @@
 {
     public class DropdownDisplayName
     {
-        public const string EnumDropdown = "單選下拉選單";
+        public const string EnumDropdown = "單選枚舉下拉選單";
 
-        public const string EnumDropdownMultiple = "多選下拉選單";
+        public const string EnumDropdownMultiple = "多選枚舉下拉選單";
 
         public const string DbDataDropdown = "資料庫資料下拉選單";
 

@@ -1,23 +1,28 @@
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using ModelValidation.ModelValidators;
 using ModelValidation.ModelValidators.Common;
+using ModelValidation.Providers;
 using ModelValidation.Serivces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
 // General
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
+// Controller
+builder.Services.AddControllersWithViews();
 
 // Provider
+builder.Services.AddScoped<PagerProvider>();
 builder.Services.AddScoped<ToastrProvider>();
 
-// CommonModelValidator
+// ModelValidator
 builder.Services.AddScoped<CommonModelValidator>();
 builder.Services.AddScoped<DropdownModelValidator>();
 
 // Service
+builder.Services.AddScoped<ActivityService>();
 builder.Services.AddScoped<DropdownService>();
 
 var app = builder.Build();

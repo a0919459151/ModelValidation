@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ModelValidation.Models.ViewModel.Auth;
 using ModelValidation.ModelValidators.Common;
+using ModelValidation.Providers;
 
 namespace ModelValidation.Controllers
 {

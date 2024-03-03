@@ -4,86 +4,166 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ModelValidation.styles.css" asp-append-version="true" />
 
+    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
+    @* <link rel="stylesheet" href="~/ModelValidation.styles.css" asp-append-version="true" /> *@
+
+    <!-- Import admin-lte cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+    <!-- Impoer font awesome cdn -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Import select2 cdn -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <!-- Import toastr cdn -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ModelValidation</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="wrapper">
 
-                <!-- Nav bar -->
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+        </nav>
 
+        <!-- Sidebar  -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="~/Home/Index" class="brand-link">
+                <span class="brand-text font-weight-light">ModelValitation</span>
+            </a>
+
+            <div class="sidebar">
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" expandSidebar="true">
                         <!-- Home -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a href="~/Home/Index" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>
+                                    Home
+                                </p>
+                            </a>
                         </li>
-
                         <!-- Privacy -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a href="~/Home/Privacy" class="nav-link">
+                                <i class="nav-icon fas fa-user-secret"></i>
+                                <p>
+                                    Privacy
+                                </p>
+                            </a>
                         </li>
-
-                        <!-- Sign Up -->
+                        <!-- Activity -->
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tasks"></i>
+                                <p>
+                                    Activity
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/Activity/ActivityPagedList" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>
+                                            Activity Paged List
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/Activity/ActivityList" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>
+                                            Activity List
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/Activity/CreateActivity" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>
+                                            Create Activity
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- DateTime -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignUp">SignUp</a>
+                            <a href="~/DateTime/Index" class="nav-link">
+                                <i class="nav-icon fas fa-calendar"></i>
+                                <p>
+                                    Data Time
+                                </p>
+                            </a>
                         </li>
-
-                        <!-- Sign In -->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignIn">SignIn</a>
-                        </li>
-
-                        <!-- Create Activity -->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Activity" asp-action="CreateActivity">CreateActivity</a>
-                        </li>
-
-                        <!-- Date Time -->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="DateTime" asp-action="Index">DateTime</a>
-                        </li>
-
                         <!-- Dropdown -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Dropdown" asp-action="Index">Dropdown</a>
+                            <a href="~/Dropdown/Index" class="nav-link">
+                                <i class="nav-icon fas fa-caret-square-down"></i>
+                                <p>
+                                    Dropdown
+                                </p>
+                            </a>
                         </li>
-
+                        <!-- File -->
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-file"></i>
+                                <p>
+                                    File
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/File/Index" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>
+                                            File
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/File/Upload" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>
+                                            Upload
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                </div>
-
+                </nav>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+        </aside>
+
+        <div class="content-wrapper px-4 py-2">
             @RenderBody()
-        </main>
+        </div>
+
+        <footer class="main-footer">
+            <strong>
+                &copy; 2024 - ModelValidation - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </strong>
+        </footer>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - ModelValidation - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <!-- Body bottom -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
+    <!-- Import admin-lte cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
     <!-- Import select2 cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <!-- Import tiny cdn -->
@@ -95,5 +175,13 @@
     @* <partial name="/Views/Shared/_ValidationScriptsPartial.cshtml" /> *@
     <!-- Toastr -->
     <partial name="/Views/Shared/_ToastrPartial.cshtml" />
+
+    <script>
+        $(document).ready(function () {
+            // Sidebar active
+            sidebarActive();
+        });
+    </script>
 </body>
+
 </html>

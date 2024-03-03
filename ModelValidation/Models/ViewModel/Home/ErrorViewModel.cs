@@ -1,4 +1,4 @@
-namespace ModelValidation.Models
+namespace ModelValidation.Models.ViewModel.Home
 {
     public class ErrorViewModel
     {

@@ -31,7 +31,7 @@
                 <!-- Enum dropdown -->
                 <div class="form-group">
                     <label asp-for="@Model.EnumDropdown" class="control-label"></label>
-                    @Html.Raw(ViewConstString.RequriedHint)
+                    <partial name="_RequriedHintPartial" />
                     <select asp-for="@Model.EnumDropdown" class="form-control" asp-items="enumDropdownItems"></select>
                     <span asp-validation-for="@Model.EnumDropdown" class="text-danger"></span>
                 </div>
@@ -46,7 +46,7 @@
                 <!-- Enum dropdown multiple -->
                 <div class="form-group">
                     <label asp-for="@Model.EnumDropdownMultiple" class="control-label"></label>
-                    @Html.Raw(ViewConstString.RequriedHint)
+                    <partial name="_RequriedHintPartial" />
                     <select asp-for="@Model.EnumDropdownMultiple" class="form-control" asp-items="enumDropdownItems"></select>
                     <span asp-validation-for="@Model.EnumDropdownMultiple" class="text-danger"></span>
                 </div>
@@ -70,7 +70,7 @@
                 <!-- DB data dropdown -->
                 <div class="form-group">
                     <label asp-for="@Model.DbDataDropdownId" class="control-label"></label>
-                    @Html.Raw(ViewConstString.RequriedHint)
+                    <partial name="_RequriedHintPartial" />
                     <select asp-for="@Model.DbDataDropdownId" class="form-control" asp-items="dbDataDropdownItems"></select>
                     <span asp-validation-for="@Model.DbDataDropdownId" class="text-danger"></span>
                 </div>
@@ -85,7 +85,7 @@
                 <!-- DB data dropdown multipul -->
                 <div class="form-group">
                     <label asp-for="@Model.DbDataDropdownMultipleId" class="control-label"></label>
-                    @Html.Raw(ViewConstString.RequriedHint)
+                    <partial name="_RequriedHintPartial" />
                     <select asp-for="@Model.DbDataDropdownMultipleId" class="form-control" asp-items="dbDataDropdownItems"></select>
                     <span asp-validation-for="@Model.DbDataDropdownMultipleId" class="text-danger"></span>
                 </div>
