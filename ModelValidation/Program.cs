@@ -20,6 +20,7 @@ builder.Services.AddScoped<ToastrProvider>();
 // ModelValidator
 builder.Services.AddScoped<CommonModelValidator>();
 builder.Services.AddScoped<DropdownModelValidator>();
+builder.Services.AddScoped<CheckboxModelValidator>();
 
 // Service
 builder.Services.AddScoped<ActivityService>();

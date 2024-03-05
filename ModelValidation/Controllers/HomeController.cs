@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using ModelValidation.Models;
+using ModelValidation.Models.ViewModel.Home;
 using System.Diagnostics;
 
 namespace ModelValidation.Controllers

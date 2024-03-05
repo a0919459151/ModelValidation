@@ -1,0 +1,103 @@
+﻿@model CheckboxViewModel
+
+@{
+    ViewData["Title"] = "Checkbox";
+}
+
+
+<div class="col-md-4">
+    <form method="post">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Checkbox basic</h4>
+            </div>
+            <div class="card-body">
+
+                <!-- Checkbox -->
+                <div class="custom-control custom-checkbox">
+                    <input asp-for="@Model.IsChecked" class="custom-control-input" />
+                    <label asp-for="@Model.IsChecked" class="custom-control-label"></label>
+                </div>
+
+                <!-- Checkbox disabled -->
+                <div class="custom-control custom-checkbox">
+                    <input asp-for="@Model.IsCheckedDisabled" class="custom-control-input" disabled />
+                    <label asp-for="@Model.IsCheckedDisabled" class="custom-control-label"></label>
+                </div>
+
+                <!-- Switch -->
+                <div class="custom-control custom-switch">
+                    <input asp-for="@Model.IsSwitchChecked" class="custom-control-input" />
+                    <label asp-for="@Model.IsSwitchChecked" class="custom-control-label"></label>
+                </div>
+
+                <!-- Switch disabled -->
+                <div class="custom-control custom-switch">
+                    <input asp-for="@Model.IsSwitchCheckedDisabled" class="custom-control-input" disabled />
+                    <label asp-for="@Model.IsSwitchCheckedDisabled" class="custom-control-label"></label>
+                </div>
+
+                <!-- Radio -->
+                <div class="custom-control custom-radio">
+                    <input asp-for="@Model.IsRadioChecked" class="custom-control-input" />
+                    <label asp-for="@Model.IsRadioChecked" class="custom-control-label"></label>
+                </div>
+
+                <!-- Radio disabled -->
+                <div class="custom-control custom-radio">
+                    <input asp-for="@Model.IsRadioCheckedDisabled" class="custom-control-input" disabled />
+                    <label asp-for="@Model.IsRadioCheckedDisabled" class="custom-control-label"></label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="col-md-4">
+    <form method="post">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">
+                    Checkbox validation
+                </h4>
+            </div>
+            <div class="card-body">
+
+                <div class="custom-control custom-checkbox">
+                    <input asp-for="@Model.IsForceChangePassword" class="custom-control-input" />
+                    <label asp-for="@Model.IsForceChangePassword" class="custom-control-label"></label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.PasswordChangeTime" class="control-label"></label>
+                    <input asp-for="@Model.PasswordChangeTime" class="form-control" />
+                    <span asp-validation-for="@Model.PasswordChangeTime" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary" asp-action="PostIndex">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            switchPasswordChangeTime();
+
+            $('#IsForceChangePassword').change(function () {
+                switchPasswordChangeTime();
+            });
+
+        });
+
+        function switchPasswordChangeTime() {
+            if ($('#IsForceChangePassword').is(':checked')) {
+                $('#PasswordChangeTime').prop('disabled', false).val('');
+            } else {
+                $('#PasswordChangeTime').prop('disabled', true).val('');
+            }
+        }
+    </script>
+}
