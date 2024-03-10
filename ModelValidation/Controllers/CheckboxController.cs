@@ -26,7 +26,14 @@ namespace ModelValidation.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult PostIndex(CheckboxViewModel model)
         {
-            return View();
+            var validateResult = _checkboxModelValidator.CommonValidate(model);
+            if (!validateResult.IsValid)
+            {
+                _toastr.Error(validateResult.Messages);
+                return RedirectToAction(nameof(Index));
+            }
+            _toastr.Success();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

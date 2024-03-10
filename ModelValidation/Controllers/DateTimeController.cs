@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ModelValidation.Models.ViewModel.DataTime;
-using ModelValidation.ModelValidators.Common;
+using ModelValidation.ModelValidators;
 using ModelValidation.Providers;
 
 namespace ModelValidation.Controllers
@@ -8,13 +8,13 @@ namespace ModelValidation.Controllers
     public class DateTimeController : Controller
     {
         private readonly ToastrProvider _toastr;
-        private readonly CommonModelValidator _commonModelValidator;
+        private readonly DateTimeModelValidator _dateTimeModelValidator;
 
 
-        public DateTimeController(ToastrProvider toastr, CommonModelValidator modelValidator)
+        public DateTimeController(ToastrProvider toastr, DateTimeModelValidator dateTimeModelValidator)
         {
             _toastr = toastr;
-            _commonModelValidator = modelValidator;
+            _dateTimeModelValidator = dateTimeModelValidator;
         }
 
         public IActionResult Index()
@@ -27,7 +27,7 @@ namespace ModelValidation.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult PostIndex(DateTimeViewModel model)
         {
-            var validateResult = _commonModelValidator.CommonValidate(model);
+            var validateResult = _dateTimeModelValidator.CommonValidate(model);
             if (!validateResult.IsValid)
             {
                 _toastr.Error(validateResult.Messages);

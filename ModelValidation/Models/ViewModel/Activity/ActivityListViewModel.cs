@@ -14,6 +14,12 @@ namespace ModelValidation.Models.ViewModel.Activity
     {
         [Display(Name = ActivityListDisplayName.Name)]
         public string? Name { get; set; }
+
+        [Display(Name = ActivityListDisplayName.StartAt)]
+        public DateTime? StartAt { get; set; }
+
+        [Display(Name = ActivityListDisplayName.EndAt)]
+        public DateTime? EndAt { get; set; }
     }
 
     public class ActivityModel
@@ -21,5 +27,9 @@ namespace ModelValidation.Models.ViewModel.Activity
         public int Id { get; set; }
 
         public string? Name { get; set; }
+
+        public DateTime? StartAt { get; set; }
+
+        public DateTime? EndAt { get; set; }
     }
 }

@@ -4,7 +4,6 @@ namespace ModelValidation.ModelValidators
 {
     public class CheckboxModelValidator : CommonModelValidator
     {
-
     }
    
 }

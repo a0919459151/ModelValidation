@@ -2,8 +2,8 @@
 {
     public class ModelValidatorResult
     {
-        public bool IsValid { get; set; }
-
+        public bool IsValid => Messages.Count == 0;
+               
         public List<string> Messages { get; set; } = new();
     }
 }

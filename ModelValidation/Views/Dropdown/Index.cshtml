@@ -9,14 +9,14 @@
 
     // Enum dropdown nullable items
     var enumDropdownNullableItems = Html.GetEnumSelectList<LogLevelEnum>()
-        .Prepend(new SelectListItem { Value = "", Text = "請選擇" });
+        .Prepend(new SelectListItem { Value = "", Text = "(請選擇)" });
 
     // DB data dropdown items
     var dbDataDropdownItems = _dropdownService.GetActivityDropdownItems();
 
     // DB data dropdown nullable items
     var dbDataDropdownNullableItems = _dropdownService.GetActivityDropdownItems()
-        .Prepend(new SelectListItem { Value = "", Text = "請選擇" });
+        .Prepend(new SelectListItem { Value = "", Text = "(請選擇)" });
 }
 
 <div class="col-md-4">

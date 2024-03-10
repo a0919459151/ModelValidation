@@ -17,8 +17,14 @@ namespace ModelValidation.Models.ViewModel.Activity
         [Display(Name = ActivityListDisplayName.Name)]
         public string? Name { get; set; }
 
+        [Display(Name = ActivityListDisplayName.StartAt)]
+        public DateTime? StartAt { get; set; }
+
+        [Display(Name = ActivityListDisplayName.EndAt)]
+        public DateTime? EndAt { get; set; }
+
         public int PageNumber { get; set; } = PagerConstants.DefaultPageNumber;
 
-        public int PageSize { get; set; } = PagerConstants.DefaultPageNumber;
+        public int PageSize { get; set; } = PagerConstants.DefaultPageSize;
     }
 }

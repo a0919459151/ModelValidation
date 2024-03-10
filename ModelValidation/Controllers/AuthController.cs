@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ModelValidation.Models.ViewModel.Auth;
-using ModelValidation.ModelValidators.Common;
+using ModelValidation.ModelValidators;
 using ModelValidation.Providers;
 
 namespace ModelValidation.Controllers
@@ -8,12 +8,12 @@ namespace ModelValidation.Controllers
     public class AuthController : Controller
     {
         private readonly ToastrProvider _toastr;
-        private readonly CommonModelValidator _commonModelValidator;
+        private readonly AuthModelValidator _authModelValidator;
 
-        public AuthController(CommonModelValidator modelValidator, ToastrProvider toastr)
+        public AuthController(ToastrProvider toastr, AuthModelValidator authModelValidator)
         {
-            _commonModelValidator = modelValidator;
             _toastr = toastr;
+            _authModelValidator = authModelValidator;
         }
 
         public IActionResult Index()
@@ -31,7 +31,7 @@ namespace ModelValidation.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SignUp(SignUpViewModel model)
         {
-            var validateResult = _commonModelValidator.CommonValidate(model);
+            var validateResult = _authModelValidator.CommonValidate(model);
             if (!validateResult.IsValid)
             {
                 _toastr.Error(validateResult.Messages);
@@ -51,7 +51,7 @@ namespace ModelValidation.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SignIn(SignInViewModel model)
         {
-            var validateResult = _commonModelValidator.CommonValidate(model);
+            var validateResult = _authModelValidator.CommonValidate(model);
             if (!validateResult.IsValid)
             {
                 _toastr.Error(validateResult.Messages);

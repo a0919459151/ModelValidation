@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace ModelValidation.ModelValidators.Common
 {
-    public class CommonModelValidator
+    public abstract class CommonModelValidator
     {
         private object? CurrentModel { get; set; }
         private PropertyInfo? CurrentProperty { get; set; }
@@ -41,28 +41,24 @@ namespace ModelValidation.ModelValidators.Common
                     if (!string.IsNullOrEmpty(errorMessage))
                     {
                         errorMessages.Add(errorMessage);
-                        continue;
                     }
 
                     errorMessage = ListRequiredValidate();
                     if (!string.IsNullOrEmpty(errorMessage))
                     {
                         errorMessages.Add(errorMessage);
-                        continue;
                     }
 
                     errorMessage = DatetimeRequiredValidate();
                     if (!string.IsNullOrEmpty(errorMessage))
                     {
                         errorMessages.Add(errorMessage);
-                        continue;
                     }
                 }
             }
 
             return new()
             {
-                IsValid = errorMessages.Count == 0,
                 Messages = errorMessages
             };
         }

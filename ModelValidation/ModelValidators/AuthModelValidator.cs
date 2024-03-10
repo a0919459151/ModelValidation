@@ -2,7 +2,7 @@
 
 namespace ModelValidation.ModelValidators
 {
-    public class DropdownModelValidator : CommonModelValidator
+    public class AuthModelValidator : CommonModelValidator
     {
     }
 }

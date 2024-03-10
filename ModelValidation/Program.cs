@@ -10,21 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
-// Controller
-builder.Services.AddControllersWithViews();
-
-// Provider
-builder.Services.AddScoped<PagerProvider>();
-builder.Services.AddScoped<ToastrProvider>();
-
-// ModelValidator
-builder.Services.AddScoped<CommonModelValidator>();
-builder.Services.AddScoped<DropdownModelValidator>();
-builder.Services.AddScoped<CheckboxModelValidator>();
-
-// Service
-builder.Services.AddScoped<ActivityService>();
-builder.Services.AddScoped<DropdownService>();
+// IOC container
+builder.Services
+    .AddProviders()
+    .AddServices()
+    .AddModelValidators()
+    .AddControllersWithViews();
 
 var app = builder.Build();
 

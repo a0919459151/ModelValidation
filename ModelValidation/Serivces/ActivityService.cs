@@ -1,43 +1,59 @@
 ﻿using ModelValidation.Extensions;
 using ModelValidation.Models.ViewModel.Activity;
-using ModelValidation.Providers;
 using X.PagedList;
 
 namespace ModelValidation.Serivces
 {
     public class ActivityService
     {
-        private List<ActivityModel> ActivityReposotory => [
-            new ActivityModel { Id = 1, Name = "Activity 1" },
-            new ActivityModel { Id = 2, Name = "Activity 2" },
-            new ActivityModel { Id = 3, Name = "Activity 3" },
-            new ActivityModel { Id = 4, Name = "Activity 4" },
-            new ActivityModel { Id = 5, Name = "Activity 5" },
-            new ActivityModel { Id = 6, Name = "Activity 6" },
-            new ActivityModel { Id = 7, Name = "Activity 7" },
-            new ActivityModel { Id = 8, Name = "Activity 8" },
-            new ActivityModel { Id = 9, Name = "Activity 9" },
-            new ActivityModel { Id = 10, Name = "Activity 10" },
-            new ActivityModel { Id = 11, Name = "Activity 11" },
-            new ActivityModel { Id = 12, Name = "Activity 12" },
-            new ActivityModel { Id = 13, Name = "Activity 13" },
-            new ActivityModel { Id = 14, Name = "Activity 14" },
-            new ActivityModel { Id = 15, Name = "Activity 15" },
-        ];
+        private static List<ActivityModel> _activityReposotory = GenerateActivities(30);
+
+        #region Mock reposotory
+        // get radom data for demo
+        // - radom StartAt between  +- 1 month
+        // - radom EndAt between StartAt + 1 day and StartAt + 7 day
+        private static List<ActivityModel> GenerateActivities(int count)
+        {
+            var rng = new Random();
+            var activities = new List<ActivityModel>();
+            for (int i = 1; i <= count; i++)
+            {
+                int startOffsetDays = rng.Next(-30, 30);
+                DateTime startAt = DateTime.Now.AddDays(startOffsetDays);
+
+                int durationDays = rng.Next(1, 8);
+                DateTime endAt = startAt.AddDays(durationDays);
+
+                activities.Add(new ActivityModel
+                {
+                    Id = i,
+                    Name = $"活動{i}",
+                    StartAt = startAt,
+                    EndAt = endAt
+                });
+            }
+
+            return activities;
+        }
+        #endregion
 
         public List<ActivityModel> GetActivityList(ActivityListQueryModel query)
         {
-            var result = ActivityReposotory
+            var result = _activityReposotory
                 .WhereIf(query.Name != null, a => a.Name!.Contains(query.Name!))
+                .WhereIf(query.StartAt != null, a => a.StartAt!.Value.Date >= query.StartAt!.Value.Date)
+                .WhereIf(query.EndAt != null, a => a.EndAt!.Value.Date <= query.EndAt!.Value.Date)
                 .ToList();
             return result;
         }
 
         public IPagedList<ActivityModel> GetActivityPagedList(ActivityPagedListQueryModel query)
         {
-            var result = ActivityReposotory
+            var result = _activityReposotory
                 .WhereIf(query.Name != null, a => a.Name!.Contains(query.Name!))
-                .ToPagedList(PagerConstants.DefaultPageNumber, PagerConstants.DefaultPageSize);
+                .WhereIf(query.StartAt != null, a => a.StartAt!.Value.Date >= query.StartAt!.Value.Date)
+                .WhereIf(query.EndAt != null, a => a.EndAt!.Value.Date <= query.EndAt!.Value.Date)
+                .ToPagedList(query.PageNumber, query.PageSize);
             return result;
         }
     }
